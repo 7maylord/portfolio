@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 function Contact() {
     const [formData, setFormData] = useState({
@@ -35,7 +35,8 @@ function Contact() {
         <div className="contact-content">
           <div className="column left">
             <div className="text">Get in Touch</div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+            <p>I am always open to discussing new opportunities, collaborations, or projects. Feel free to contact me
+            using the details below or through the message form.</p>
             <div className="icons">
               <div className="row">
                 <i className="fas fa-user"></i>
@@ -55,7 +56,7 @@ function Contact() {
                 <i className="fas fa-envelope"></i>
                 <div className="info">
                   <div className="head">Email</div>
-                  <div className="sub-title">olumideadenigba@gmail.com</div>
+                  <div className="sub-title"><a href="mailto:Olumideadenigba@gmail.com">Email Me</a>olumideadenigba@gmail.com</div>
                 </div>
               </div>
             </div>

@@ -8,7 +8,10 @@ function Skills() {
         <div className="skills-content">
           <div className="column left">
             <div className="text">My creative skills & experiences.</div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+            <p> I am proficient in a variety of programming languages and frameworks, with a focus on backend development.
+              My experience includes building scalable web applications, working with databases, and deploying applications
+              to the cloud. I also bring a problem-solving mindset from my civil engineering background.
+           .</p>
             <a href="#">Read more</a>
           </div>
           <div className="column right">

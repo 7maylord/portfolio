@@ -4,6 +4,7 @@
 :root {
   /* Primary color */
   --color-main: crimson;
+  
   /* Secondary color */
   --color-dark:  #111; /*  Background for Home, services and contact sections */
   --color-dark-2:  #222; /* Dark background for service cards */

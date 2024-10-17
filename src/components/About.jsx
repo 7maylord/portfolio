@@ -27,10 +27,11 @@ function About() {
               I'm Alfred and I'm a <span className="typing-2"></span>
             </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-              Quasi ut voluptatum eveniet doloremque autem excepturi eaque, 
-              sit laboriosam voluptatem nisi delectus. Facere explicabo hic 
-              minus accusamus alias fuga nihil dolorum quae.
+              A versatile software engineer with a background in civil engineering, offering strong problem-solving, analytical thinking, 
+              and project management skills. As a graduate of Altschool Africa's Backend Engineering program, I am passionate about building 
+              impactful software solutions that solve real-world problems. While I once focused on designing structural foundations, I now channel 
+              that problem-solving mindset into writing code to create reliable and scalable software. I am driven by the desire to work in environments 
+              that value innovation and collaboration, where I can leverage my skills to develop products that improve everyday experiences.            
             </p>
             <a href="/Alfred-Olumide-Adenigba-Resume.pdf" target="_blank" rel="noopener noreferrer">View CV</a> {/* View CV */}
              {/* <a href="/Alfred-Olumide-Adenigba-Resume.pdf" download>Download CV</a> Link to CV */}
