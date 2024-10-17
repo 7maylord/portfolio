@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 function Contact() {
     const [formData, setFormData] = useState({
@@ -56,7 +56,7 @@ function Contact() {
                 <i className="fas fa-envelope"></i>
                 <div className="info">
                   <div className="head">Email</div>
-                  <div className="sub-title"><a href="mailto:Olumideadenigba@gmail.com">Email Me</a>olumideadenigba@gmail.com</div>
+                  <div className="sub-title"><a href="mailto:Olumideadenigba@gmail.com">olumideadenigba@gmail.com</a></div>
                 </div>
               </div>
             </div>
