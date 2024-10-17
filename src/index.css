@@ -4,7 +4,7 @@
 :root {
   /* Primary color */
   --color-main: crimson;
-  
+
   /* Secondary color */
   --color-dark:  #111; /*  Background for Home, services and contact sections */
   --color-dark-2:  #222; /* Dark background for service cards */
@@ -51,6 +51,7 @@ section {
 .about,
 .services,
 .skills,
+.projects,
 .contact,
 footer {
   font-family: "Poppins", sans-serif;
@@ -275,16 +276,16 @@ section .title::after {
 
 /* services section styling */
 .services,
-.contact {
+.projects {
   color:  var(--color-light);
   background:  var(--color-dark);
 }
 .services .title::before,
-.contact .title::before {
+.projects .title::before {
   background:  var(--color-light);
 }
 .services .title::after,
-.contact .title::after {
+.projects .title::after {
   background:  var(--color-dark);
   content: "what i provide";
 }
@@ -401,6 +402,69 @@ section .title::after {
   width: 70%;
 }
 
+/* projects section styling */
+.projects .title::after{
+    content: "what i have done";
+}
+.projects .carousel .card{
+    background: var(--color-dark-2);
+    border-radius: 6px;
+    padding: 25px 35px;
+    text-align: center;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+.projects .carousel .card:hover{
+    background: var(--color-main);
+}
+.projects .carousel .card .box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+.projects .carousel .card:hover .box{
+    transform: scale(1.05);
+}
+.projects .carousel .card .text{
+    font-size: 25px;
+    font-weight: 500;
+    margin: 10px 0 7px 0;
+}
+.projects .carousel .card img{
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid var(--color-main);
+    transition: all 0.3s ease;
+}
+.projects .carousel .card:hover img{
+    border-color: var(--color-light);
+}
+.owl-dots{
+    text-align: center;
+    margin-top: 20px;
+}
+.owl-dot{
+    height: 13px;
+    width: 13px;
+    margin: 0 5px;
+    outline: none!important;
+    border-radius: 50%;
+    border: 2px solid var(--color-main)!important;
+    transition: all 0.3s ease;
+}
+.owl-dot.active{
+    width: 35px;
+    border-radius: 14px;
+}
+.owl-dot.active,
+.owl-dot:hover{
+    background: var(--color-main)!important;
+}
+
 /* contact section styling */
 .contact .title::after {
   content: "get in touch";
@@ -499,9 +563,9 @@ section .title::after {
 
 /* footer section styling */
 footer {
-  background:  var(--color-light);
+  background:  var(--color-dark);
   padding: 15px 23px;
-  color:  var(--color-dark);
+  color:  var(--color-light);
   text-align: center;
 }
 footer span a {

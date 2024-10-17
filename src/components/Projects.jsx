@@ -2,7 +2,7 @@ import React from 'react';
 
 function Projects() {
   return (
-    <section className="teams" id="teams">
+    <section className="projects" id="projects">
       <div className="max-width">
         <h2 className="title">My Projects</h2>
         <div className="carousel owl-carousel">
