@@ -24,6 +24,11 @@ function Navbar() {
     setMenuOpen(!menuOpen);
   };
 
+  // Close the menu when a link is clicked
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <nav className={`navbar ${isSticky ? 'sticky' : ''}`}>
       <div className="max-width">
@@ -31,12 +36,12 @@ function Navbar() {
           <a href="#">May<span>lord.</span></a>
         </div>
         <ul className={`menu ${menuOpen ? 'active' : ''}`}>
-          <li><a href="#home" className="menu-btn">Home</a></li>
-          <li><a href="#about" className="menu-btn">About</a></li>
-          <li><a href="#services" className="menu-btn">Services</a></li>
-          <li><a href="#skills" className="menu-btn">Skills</a></li>
-          <li><a href="#projects" className="menu-btn">Projects</a></li>
-          <li><a href="#contact" className="menu-btn">Contact</a></li>
+          <li><a href="#home" className="menu-btn" onClick={closeMenu}>Home</a></li>
+          <li><a href="#about" className="menu-btn" onClick={closeMenu}>About</a></li>
+          <li><a href="#services" className="menu-btn" onClick={closeMenu}>Services</a></li>
+          <li><a href="#skills" className="menu-btn" onClick={closeMenu}>Skills</a></li>
+          <li><a href="#projects" className="menu-btn" onClick={closeMenu}>Projects</a></li>
+          <li><a href="#contact" className="menu-btn" onClick={closeMenu}>Contact</a></li>
         </ul>
         <div className="menu-btn" onClick={toggleMenu}>
           <i className={`fas ${menuOpen ? 'fa-times' : 'fa-bars'}`}></i>

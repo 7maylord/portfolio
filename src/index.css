@@ -404,9 +404,9 @@ section .title::after {
 
 /* projects section styling */
 .projects .title::after{
-    content: "what i have done";
+    content: "what i have";
 }
-.projects .carousel .card{
+.projects .project-carousel .card{
     background: var(--color-dark-2);
     border-radius: 6px;
     padding: 25px 35px;
@@ -414,25 +414,25 @@ section .title::after {
     overflow: hidden;
     transition: all 0.3s ease;
 }
-.projects .carousel .card:hover{
+.projects .project-carousel .card:hover{
     background: var(--color-main);
 }
-.projects .carousel .card .box{
+.projects .project-carousel .card .box{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
 }
-.projects .carousel .card:hover .box{
+.projects .project-carousel .card:hover .box{
     transform: scale(1.05);
 }
-.projects .carousel .card .text{
+.projects .project-carousel .card .text{
     font-size: 25px;
     font-weight: 500;
     margin: 10px 0 7px 0;
 }
-.projects .carousel .card img{
+.projects .project-carousel .card img{
     height: 150px;
     width: 150px;
     object-fit: cover;
@@ -440,10 +440,10 @@ section .title::after {
     border: 5px solid var(--color-main);
     transition: all 0.3s ease;
 }
-.projects .carousel .card:hover img{
+.projects .project-carousel .card:hover img{
     border-color: var(--color-light);
 }
-.owl-dots{
+/* .owl-dots{
     text-align: center;
     margin-top: 20px;
 }
@@ -463,7 +463,7 @@ section .title::after {
 .owl-dot.active,
 .owl-dot:hover{
     background: var(--color-main)!important;
-}
+} */
 
 /* contact section styling */
 .contact .title::after {
@@ -694,11 +694,16 @@ footer span a:hover {
     width: 150px;
   }
   .scroll-up-btn {
-    right: 15px;
-    bottom: 15px;
+    right: 30px;
+    bottom: 10px;
     height: 38px;
     width: 35px;
     font-size: 23px;
     line-height: 38px;
+    z-index: 9999;
+    border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
   }
 }

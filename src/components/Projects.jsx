@@ -1,14 +1,25 @@
-import React from 'react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 function Projects() {
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+      };
   return (
     <section className="projects" id="projects">
       <div className="max-width">
         <h2 className="title">My Projects</h2>
-        <div className="carousel owl-carousel">
+         <Slider className="project-carousel owl-theme" {...settings}>     
           <div className="card">
             <div className="box">
-              <h3>UrlChop - URL Shortener App</h3>
+              <h3>UrlChop</h3>
               <p>
                 Developed a URL shortening service using Node.js and TypeScript with features like custom short URLs, 
                 analytics tracking, and QR code generation.
@@ -21,7 +32,7 @@ function Projects() {
           </div>
           <div className="card">
             <div className="box">
-              <h3>Blog API - Content Management Platform</h3>
+              <h3>Blog API</h3>
               <p>
                 Built a blog content management API with Express and MongoDB, allowing users to create, update, delete, 
                 and manage blog posts. Features include authentication, categories, tags, and content search.
@@ -32,7 +43,7 @@ function Projects() {
               </a>
             </div>
           </div>          
-        </div>
+        </Slider>
       </div>
     </section>
   );
