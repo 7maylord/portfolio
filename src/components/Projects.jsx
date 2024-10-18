@@ -1,22 +1,31 @@
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import OwlCarousel from 'react-owl-carousel';
 
 function Projects() {
-    const settings = {
+    const options = {
+        margin: 20,
+        loop: true,
+        autoplay: false,
+        autoplayTimeout: 2000,
+        autoplayHoverPause: true,
+        nav: false,
         dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 2000,
+        responsive: {
+          0: {
+            items: 1,
+          },
+          600: {
+            items: 2,
+          },
+          1000: {
+            items: 3,
+          }
+        }
       };
   return (
     <section className="projects" id="projects">
       <div className="max-width">
         <h2 className="title">My Projects</h2>
-         <Slider className="project-carousel owl-theme" {...settings}>     
+        <OwlCarousel className="project-carousel owl-theme" {...options}>        
           <div className="card">
             <div className="box">
               <h3>UrlChop</h3>
@@ -43,7 +52,7 @@ function Projects() {
               </a>
             </div>
           </div>          
-        </Slider>
+        </OwlCarousel>
       </div>
     </section>
   );
