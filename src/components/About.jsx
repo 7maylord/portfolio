@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import Typed from 'typed.js';
+import profileImage from '../assets/profile-1.jpeg';
 
 function About() {
   useEffect(() => {
@@ -20,7 +21,7 @@ function About() {
         <h2 className="title">About me</h2>
         <div className="about-content">
           <div className="column left">
-            <img src="src/assets/profile-1.jpeg" alt="Profile" />
+            <img src={profileImage} alt="Profile" />
           </div>
           <div className="column right">
             <div className="text">
