@@ -20,7 +20,7 @@ function About() {
         <h2 className="title">About me</h2>
         <div className="about-content">
           <div className="column left">
-            <img src="src\assets\profile-1.jpeg" alt="Profile" />
+            <img src="src/assets/profile-1.jpeg" alt="Profile" />
           </div>
           <div className="column right">
             <div className="text">
