@@ -11,10 +11,9 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
-    "@rollup/plugin-inject": "^5.0.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-owl-carousel": "^2.3.3",
+    "swiper": "^11.1.15",
     "typed.js": "^2.1.0"
   },
   "devDependencies": {
