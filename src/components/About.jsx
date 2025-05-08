@@ -6,7 +6,7 @@ function About() {
   useEffect(() => {
     // Initialize Typed.js for the profession typing effect
     const typed = new Typed('.typing-2', {
-      strings: ["Software Engineer", "Node.js Developer", "Project Manager", "Freelancer"],
+      strings: ["Software Engineer", "Blockchain Developer", "Node.js Developer", "Project Manager", "Freelancer"],
       typeSpeed: 100,
       backSpeed: 60,
       loop: true

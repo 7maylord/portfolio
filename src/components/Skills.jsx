@@ -1,5 +1,3 @@
-import React from 'react';
-
 function Skills() {
   return (
     <section className="skills" id="skills">
@@ -17,21 +15,21 @@ function Skills() {
           <div className="column right">
             <div className="bars">
               <div className="info">
-                <span>HTML</span>
+                <span>Node.js</span>
                 <span>90%</span>
               </div>
               <div className="line html"></div>
             </div>
             <div className="bars">
               <div className="info">
-                <span>CSS</span>
+                <span>Solidity</span>
                 <span>60%</span>
               </div>
               <div className="line css"></div>
             </div>
             <div className="bars">
               <div className="info">
-                <span>Node.js</span>
+                <span>Typescript</span>
                 <span>80%</span>
               </div>
               <div className="line js"></div>
@@ -45,7 +43,7 @@ function Skills() {
             </div>
             <div className="bars">
               <div className="info">
-                <span>MySQL</span>
+                <span>MongoDB</span>
                 <span>70%</span>
               </div>
               <div className="line mysql"></div>
