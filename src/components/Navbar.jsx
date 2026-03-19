@@ -1,6 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
+import { FaMoon, FaSun, FaBars, FaTimes } from "react-icons/fa";
+import PropTypes from "prop-types";
 
-function Navbar() {
+function Navbar({ toggleTheme, theme }) {
   const [isSticky, setSticky] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -13,9 +15,9 @@ function Navbar() {
         setSticky(false);
       }
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -30,25 +32,61 @@ function Navbar() {
   };
 
   return (
-    <nav className={`navbar ${isSticky ? 'sticky' : ''}`}>
+    <nav className={`navbar ${isSticky ? "sticky" : ""}`}>
       <div className="max-width">
         <div className="logo">
-          <a href="#">May<span>lord.</span></a>
+          <a href="#">
+            May<span>lord.</span>
+          </a>
         </div>
-        <ul className={`menu ${menuOpen ? 'active' : ''}`}>
-          <li><a href="#home" className="menu-btn" onClick={closeMenu}>Home</a></li>
-          <li><a href="#about" className="menu-btn" onClick={closeMenu}>About</a></li>
-          <li><a href="#services" className="menu-btn" onClick={closeMenu}>Services</a></li>
-          <li><a href="#skills" className="menu-btn" onClick={closeMenu}>Skills</a></li>
-          <li><a href="#projects" className="menu-btn" onClick={closeMenu}>Projects</a></li>
-          <li><a href="#contact" className="menu-btn" onClick={closeMenu}>Contact</a></li>
+        <ul className={`menu ${menuOpen ? "active" : ""}`}>
+          <li>
+            <a href="#home" className="menu-btn" onClick={closeMenu}>
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="#about" className="menu-btn" onClick={closeMenu}>
+              About
+            </a>
+          </li>
+          <li>
+            <a href="#services" className="menu-btn" onClick={closeMenu}>
+              Services
+            </a>
+          </li>
+          <li>
+            <a href="#skills" className="menu-btn" onClick={closeMenu}>
+              Skills
+            </a>
+          </li>
+          <li>
+            <a href="#projects" className="menu-btn" onClick={closeMenu}>
+              Projects
+            </a>
+          </li>
+          <li>
+            <a href="#contact" className="menu-btn" onClick={closeMenu}>
+              Contact
+            </a>
+          </li>
+          <li>
+            <button className="theme-toggle" onClick={toggleTheme}>
+              {theme === "dark" ? <FaSun size={20} /> : <FaMoon size={20} />}
+            </button>
+          </li>
         </ul>
         <div className="menu-btn" onClick={toggleMenu}>
-          <i className={`fas ${menuOpen ? 'fa-times' : 'fa-bars'}`}></i>
+          {menuOpen ? <FaTimes /> : <FaBars />}
         </div>
       </div>
     </nav>
   );
 }
+
+Navbar.propTypes = {
+  toggleTheme: PropTypes.func.isRequired,
+  theme: PropTypes.string.isRequired,
+};
 
 export default Navbar;

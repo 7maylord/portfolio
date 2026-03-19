@@ -1,13 +1,19 @@
-import { useEffect } from 'react';
-import Typed from 'typed.js';
+import { useEffect } from "react";
+import Typed from "typed.js";
 
 function Home() {
   useEffect(() => {
-    const typed = new Typed('.typing', {
-      strings: ["Software Engineer", "Blockchain Developer", "Node.js Developer", "Project Manager", "Freelancer"],
+    const typed = new Typed(".typing", {
+      strings: [
+        "Software Engineer",
+        "Blockchain Developer",
+        "Backend Developer",
+        "Project Manager",
+        "Freelancer",
+      ],
       typeSpeed: 100,
       backSpeed: 60,
-      loop: true
+      loop: true,
     });
     return () => typed.destroy();
   }, []);
@@ -16,10 +22,12 @@ function Home() {
     <section className="home" id="home">
       <div className="max-width">
         <div className="home-content">
-          <div className="text-1">Hello, my name is</div>
+          <div className="text-1">Welcome to my digital universe</div>
           <div className="text-2">Alfred Olumide Adenigba</div>
-          <div className="text-3">And I&apos;m a <span className="typing"></span></div>
-          <a href="#contact">Hire me</a>
+          <div className="text-3">
+            Crafting the future as a <span className="typing"></span>
+          </div>
+          <a href="#contact">Let's collaborate</a>
         </div>
       </div>
     </section>
@@ -27,4 +35,3 @@ function Home() {
 }
 
 export default Home;
-

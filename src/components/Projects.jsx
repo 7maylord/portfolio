@@ -1,35 +1,114 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/swiper-bundle.css';
-import { Navigation, Pagination, Autoplay, EffectCoverflow } from 'swiper/modules';
-import { FaGithub, FaExternalLinkAlt, FaCode } from 'react-icons/fa';
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper-bundle.css";
+import {
+  Navigation,
+  Pagination,
+  Autoplay,
+  EffectCoverflow,
+} from "swiper/modules";
+import { FaGithub, FaExternalLinkAlt, FaCode } from "react-icons/fa";
 
 function Projects() {
   const projects = [
     {
-      title: 'UrlChop - URL Shortener App',
+      title: "Colorstark",
       description:
-        'Developed a URL shortening service using Node.js and TypeScript with features like custom short URLs, analytics tracking, and QR code generation.',
-      technologies: 'React, Vite, TypeScript, Redis, Jest, MongoDB',
-      githubLink: 'https://github.com/7maylord/urlchop',
-      liveLink: 'https://urlchop.vercel.app',
-      image: '/src/assets/urlchop.png'
+        "ColorStark is a decentralized, on-chain game built on StarkNet for Starknet Africa Cairo Bootcamp IV, where players match colored bottles to a target configuration to earn points.",
+      technologies: "NextJs, UI/UX, Web3, Cairo",
+      githubLink: "https://github.com/7maylord/colorstark",
+      liveLink: "https://colorstark.vercel.app/",
+      image: null,
     },
     {
-      title: 'Blog API - Content Management Platform',
+      title: "Prism finance",
       description:
-        'Built a blog content management API with Express and MongoDB, allowing users to create, update, delete, and manage blog posts.',
-      technologies: 'Express, Node.js, MongoDB, JWT, Git, Redis',
-      githubLink: 'https://github.com/7maylord/blogApi',
-      liveLink: 'https://blog-api-7maylord.vercel.app',
-      image: '/src/assets/blog-api.png'
+        "A modern decentralized, AI-Powered, Multi-Tier DeFi Lending Protocol.",
+      technologies: "NextJs, Solidity Smart Contracts, DeFi, TypeScript",
+      githubLink: "https://github.com/7maylord/prism-finance",
+      liveLink: "https://prism-finance-ten.vercel.app/",
+      image: null,
     },
-    // Add more projects as needed
+    {
+      title: "Paytroix",
+      description:
+        "PayTroix is designed to transform traditional payroll systems into decentralized, transparent, and efficient Web3 solutions. Whether you're a startup, enterprise, or DAO, PayTroix provides the tools you need to manage payroll, benefits, and financial wellness programs seamlessly on the blockchain.",
+      technologies:
+        "NextJs, Fast Api, Supabase,Solidity Smart Contracts, DeFi, TypeScript",
+      githubLink: "https://github.com/7maylord/Paytroix",
+      liveLink: "https://paytroix.xyz/",
+      image: null,
+    },
+    {
+      title: "Lien Markets",
+      description:
+        "AI-powered prediction markets with autonomous settlement, dispute resolution, and real-time odds — built on Chainlink CRE, Gemini AI, and World ID.",
+      technologies: " Next.js, Solidity, Chainlink CRE, Tailwind",
+      githubLink: "https://github.com/7maylord/lien-markets",
+      liveLink: "https://lien-markets.vercel.app/",
+      image: null,
+    },
+    {
+      title: "BitRaise",
+      description:
+        "A comprehensive Clarity Crowdfunding DApp seamlessly migrated into a modern Next.js App Router structure.",
+      technologies: "Next.js, React, Clarity, TypeScript",
+      githubLink: "https://github.com/7maylord/bit-raise",
+      liveLink: "https://bit-raise.vercel.app",
+      image: null,
+    },
+    {
+      title: "LaunchGuard",
+      description:
+        "FHE-powered encrypted auction platform with a Next.js frontend, integrating Turbopack and on-chain encryption.",
+      technologies: "FHE, NodeJs, Solidity, Uniswap V4 hooks",
+      githubLink: "https://github.com/7maylord/LaunchGuard",
+      liveLink: "#",
+      image: null,
+    },
+    {
+      title: "UrlChop - URL Shortener App",
+      description:
+        "Developed a URL shortening service using Node.js and TypeScript with features like analytics tracking, and QR code generation.",
+      technologies: "React, Vite, TypeScript, Redis, MongoDB",
+      githubLink: "https://github.com/7maylord/urlchop",
+      liveLink: "https://urlchop.vercel.app",
+      image: null,
+    },
+    {
+      title: "Giftzap",
+      description:
+        "A digital gifting platform designed to simplify presenting, managing, and sending tokens of appreciation seamlessly.",
+      technologies: "React, Next.js, Node.js, Solidity, IPFS, NFT",
+      githubLink: "https://github.com/7maylord/giftzap",
+      liveLink: "https://giftzap.vercel.app",
+      image: null,
+    },
   ];
 
+  const isValidLiveLink = (link) => {
+    return link && link !== "#" && link.startsWith("http");
+  };
+
   const DefaultProjectImage = () => (
-    <div className="default-project-image">
-      <FaCode size={50} />
-      <span>Project Image</span>
+    <div
+      className="default-project-image"
+      style={{
+        width: "100%",
+        height: "220px",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        background: "var(--bg-glass-heavy)",
+        borderRadius: "12px",
+        border: "1px solid var(--border-glass)",
+        marginBottom: "20px",
+      }}
+    >
+      <FaCode size={50} style={{ color: "var(--text-secondary)", marginBottom: "10px" }} />
+      <span style={{ color: "var(--text-secondary)", fontSize: "14px", fontWeight: "500" }}>
+        Live Preview Unavailable
+      </span>
     </div>
   );
 
@@ -60,15 +139,15 @@ function Projects() {
           breakpoints={{
             640: {
               slidesPerView: 1,
-              effect: "slide"
+              effect: "slide",
             },
             768: {
               slidesPerView: 2,
-              effect: "slide"
+              effect: "slide",
             },
             1024: {
               slidesPerView: 3,
-              effect: "coverflow"
+              effect: "coverflow",
             },
           }}
         >
@@ -77,14 +156,46 @@ function Projects() {
               <div className="card">
                 <div className="box">
                   {project.image ? (
-                    <img 
-                      src={project.image} 
+                    <img
+                      src={project.image}
                       alt={project.title}
                       onError={(e) => {
-                        e.target.style.display = 'none';
-                        e.target.nextSibling.style.display = 'flex';
+                        e.target.style.display = "none";
+                        e.target.nextSibling.style.display = "flex";
                       }}
                     />
+                  ) : isValidLiveLink(project.liveLink) ? (
+                    <div
+                      className="iframe-preview-container"
+                      style={{
+                        width: "100%",
+                        height: "220px",
+                        overflow: "hidden",
+                        position: "relative",
+                        borderRadius: "12px",
+                        border: "1px solid var(--border-glass)",
+                        marginBottom: "20px",
+                        background: "var(--bg-dark)",
+                      }}
+                    >
+                      <iframe
+                        src={project.liveLink}
+                        title={`Live preview of ${project.title}`}
+                        loading="lazy"
+                        style={{
+                          width: "400%",
+                          height: "400%",
+                          transform: "scale(0.25)",
+                          transformOrigin: "0 0",
+                          border: "none",
+                          pointerEvents: "none",
+                          position: "absolute",
+                          top: 0,
+                          left: 0,
+                          background: "#ffffff",
+                        }}
+                      />
+                    </div>
                   ) : (
                     <DefaultProjectImage />
                   )}
@@ -94,17 +205,17 @@ function Projects() {
                     <small>{project.technologies}</small>
                   </div>
                   <div className="links">
-                    <a 
-                      href={project.githubLink} 
-                      target="_blank" 
+                    <a
+                      href={project.githubLink}
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="github-link"
                     >
                       <FaGithub /> GitHub
                     </a>
-                    <a 
-                      href={project.liveLink} 
-                      target="_blank" 
+                    <a
+                      href={project.liveLink}
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="live-link"
                     >
