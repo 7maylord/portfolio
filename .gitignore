@@ -3,7 +3,7 @@
 .env.test
 .env.development
 .env.production
-
+PORTFOLIO_IMPLEMENTATION_PLAN.md
 # Logs
 logs
 *.log
@@ -14,6 +14,7 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+.next
 dist
 dist-ssr
 *.local
