@@ -22,6 +22,10 @@ const capabilities = [
   ],
 ];
 
+const featuredProjects = [...projects]
+  .sort((a, b) => Number(Boolean(b.links.live)) - Number(Boolean(a.links.live)))
+  .slice(0, 4);
+
 export default function Home() {
   return (
     <>
@@ -60,13 +64,23 @@ export default function Home() {
           <div className="eyebrow">Featured Work</div>
           <h2>Proof over promises.</h2>
           <div className="project-grid">
-            {projects.slice(0, 4).map((project, index) => (
+            {featuredProjects.map((project, index) => (
               <article className="card project-card" key={project.slug}>
                 <div className="project-meta">
                   <span>P/{String(index + 1).padStart(2, "0")}</span>
                   <span>{project.categories[0]}</span>
                 </div>
-                <div className="project-visual">{project.name}</div>
+                <div className="project-visual">
+                  {project.links.live ? (
+                    <iframe
+                      src={project.links.live}
+                      title={`${project.name} homepage preview`}
+                      loading="lazy"
+                    />
+                  ) : (
+                    project.name
+                  )}
+                </div>
                 <h3>{project.name}</h3>
                 <p className="muted">{project.summary}</p>
                 <div className="tags">
