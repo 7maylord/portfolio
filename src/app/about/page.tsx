@@ -3,6 +3,11 @@ import { profile } from "@/content/profile";
 
 export const metadata: Metadata = {
   title: "About",
+  description:
+    "About Alfred Olumide Adenigba, a full-stack software engineer working across backend systems, AI agents, fintech, and blockchain products.",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 export default function AboutPage() {

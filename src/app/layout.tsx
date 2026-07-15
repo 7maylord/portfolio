@@ -51,6 +51,9 @@ export const metadata: Metadata = {
     siteName: "Alfred Olumide Adenigba",
     type: "website",
   },
+  alternates: {
+    canonical: "/",
+  },
   twitter: {
     card: "summary_large_image",
   },
@@ -74,6 +77,9 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <a className="skip-link" href="#main-content">
+          Skip to content
+        </a>
         <header className="header">
           <nav className="container nav" aria-label="Primary navigation">
             <Link className="brand" href="/">
@@ -83,7 +89,12 @@ export default function RootLayout({
               <Link href="/work">Work</Link>
               <Link href="/about">About</Link>
               <Link href="/resume">Resume</Link>
-              <a href={profile.medium} target="_blank" rel="noreferrer">
+              <a
+                href={profile.medium}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Read Alfred Adenigba's blog on Medium"
+              >
                 Blog
               </a>
               <Link href="/contact">Contact</Link>
@@ -98,7 +109,12 @@ export default function RootLayout({
                 <Link href="/work">Work</Link>
                 <Link href="/about">About</Link>
                 <Link href="/resume">Resume</Link>
-                <a href={profile.medium} target="_blank" rel="noreferrer">
+                <a
+                  href={profile.medium}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Read Alfred Adenigba's blog on Medium"
+                >
                   Blog
                 </a>
                 <Link href="/contact">Contact</Link>
@@ -107,7 +123,7 @@ export default function RootLayout({
             </details>
           </nav>
         </header>
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <footer className="footer">
           <div className="container">© 2026 Maylord.</div>
         </footer>

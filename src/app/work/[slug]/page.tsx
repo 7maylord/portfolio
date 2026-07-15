@@ -22,6 +22,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: project.name,
     description: project.summary,
+    alternates: {
+      canonical: `/work/${project.slug}`,
+    },
+    openGraph: {
+      title: `${project.name} — Alfred Olumide Adenigba`,
+      description: project.summary,
+      url: `/work/${project.slug}`,
+      type: "article",
+    },
   };
 }
 
@@ -41,12 +50,24 @@ export default async function ProjectPage({ params }: Props) {
         <p className="muted">{project.tagline}</p>
         <div className="actions">
           {project.links.github ? (
-            <a className="button" href={project.links.github} target="_blank" rel="noreferrer">
+            <a
+              className="button"
+              href={project.links.github}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`View ${project.name} source code on GitHub`}
+            >
               <GitFork size={16} /> GitHub
             </a>
           ) : null}
           {project.links.live ? (
-            <a className="button primary" href={project.links.live} target="_blank" rel="noreferrer">
+            <a
+              className="button primary"
+              href={project.links.live}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`Open the live ${project.name} project`}
+            >
               Live project <ExternalLink size={16} />
             </a>
           ) : null}
@@ -55,7 +76,6 @@ export default async function ProjectPage({ params }: Props) {
 
       <div className="case-layout">
         <div className="card">
-          <div className="project-visual">{project.name}</div>
           <h2>Overview</h2>
           <p className="muted">{project.summary}</p>
           <h2>Problem</h2>

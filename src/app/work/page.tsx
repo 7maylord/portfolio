@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import { projects } from "@/content/projects";
 
@@ -6,6 +7,9 @@ export const metadata: Metadata = {
   title: "Work",
   description:
     "Selected software engineering case studies from Alfred Olumide Adenigba.",
+  alternates: {
+    canonical: "/work",
+  },
 };
 
 export default function WorkPage() {
@@ -31,9 +35,17 @@ export default function WorkPage() {
               ))}
             </div>
             <div className="link-row">
-              <a className="button primary" href={`/work/${project.slug}`}>View case study</a>
+              <Link className="button primary" href={`/work/${project.slug}`}>
+                View case study
+              </Link>
               {project.links.live ? (
-                <a className="button" href={project.links.live} target="_blank" rel="noreferrer">
+                <a
+                  className="button"
+                  href={project.links.live}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`Open the live ${project.name} project`}
+                >
                   Live <ExternalLink size={16} />
                 </a>
               ) : null}

@@ -76,6 +76,7 @@ export default function Home() {
                       src={project.links.live}
                       title={`${project.name} homepage preview`}
                       loading="lazy"
+                      tabIndex={-1}
                     />
                   ) : (
                     project.name

@@ -4,6 +4,11 @@ import { profile } from "@/content/profile";
 
 export const metadata: Metadata = {
   title: "Resume",
+  description:
+    "Download Alfred Olumide Adenigba's software engineering resume.",
+  alternates: {
+    canonical: "/resume",
+  },
 };
 
 export default function ResumePage() {
