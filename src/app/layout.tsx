@@ -1,8 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import Link from "next/link";
-import { Mail, Menu } from "lucide-react";
+import { Menu } from "lucide-react";
 import "./globals.css";
 import { profile } from "@/content/profile";
+import { ThemeToggle } from "./theme-toggle";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -25,6 +26,13 @@ const jsonLd = {
     "Payment infrastructure",
   ],
 };
+
+const themeScript = `
+try {
+  var theme = localStorage.getItem("theme");
+  if (theme === "light") document.documentElement.dataset.theme = "light";
+} catch {}
+`;
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://olumideadenigba.vercel.app"),
@@ -61,6 +69,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body suppressHydrationWarning>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -78,9 +87,7 @@ export default function RootLayout({
                 Blog
               </a>
               <Link href="/contact">Contact</Link>
-              <a className="button primary" href={`mailto:${profile.email}`}>
-                <Mail size={16} /> Let&apos;s talk
-              </a>
+              <ThemeToggle />
             </div>
             <details className="mobile-menu">
               <summary aria-label="Open navigation menu">
@@ -95,9 +102,7 @@ export default function RootLayout({
                   Blog
                 </a>
                 <Link href="/contact">Contact</Link>
-                <a className="button primary" href={`mailto:${profile.email}`}>
-                  <Mail size={16} /> Let&apos;s talk
-                </a>
+                <ThemeToggle />
               </div>
             </details>
           </nav>
