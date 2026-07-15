@@ -48,7 +48,7 @@ export const projects: Project[] = [
     summary:
       "A product-style event platform focused on publishing, discovering, and managing events through a polished web interface.",
     status: "Prototype",
-    categories: ["Full Stack"],
+    categories: ["API"],
     role: "Full-stack engineer",
     technologies: ["Next.js", "TypeScript", "React", "Tailwind CSS"],
     problem:
