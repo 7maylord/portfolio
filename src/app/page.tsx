@@ -58,7 +58,9 @@ const fallbackMediumPosts: MediumPost[] = [
 ];
 
 function readCdata(xml: string, tag: string) {
-  return xml.match(new RegExp(`<${tag}><!\\[CDATA\\[(.*?)\\]\\]><\\/${tag}>`, "s"))?.[1];
+  return xml.match(
+    new RegExp(`<${tag}><!\\[CDATA\\[(.*?)\\]\\]><\\/${tag}>`, "s"),
+  )?.[1];
 }
 
 function readTag(xml: string, tag: string) {
@@ -93,7 +95,8 @@ async function getMediumPosts(): Promise<MediumPost[]> {
       .slice(0, 3)
       .map(([, item]) => ({
         title: readCdata(item, "title") ?? "Untitled post",
-        link: readTag(item, "link")?.replace(/\?source=.*$/, "") ?? profile.medium,
+        link:
+          readTag(item, "link")?.replace(/\?source=.*$/, "") ?? profile.medium,
         date: formatPostDate(readTag(item, "pubDate")),
         category: readCdata(item, "category") ?? "Writing",
       }));
@@ -125,12 +128,22 @@ export default async function Home() {
             <a className="button" href={profile.resume}>
               <Download size={16} /> Download résumé
             </a>
-            <a className="button" href={profile.github} target="_blank" rel="noreferrer">
+            <a
+              className="button"
+              href={profile.github}
+              target="_blank"
+              rel="noreferrer"
+            >
               GitHub <ExternalLink size={16} />
             </a>
           </div>
           <div className="stats">
-            {["Lagos · Remote-ready", "TypeScript + Rust", "Web, AI & multi-chain", "AltSchool Africa alumnus"].map((item) => (
+            {[
+              "Lagos · Remote-ready",
+              "TypeScript + Rust",
+              "Web, AI & multi-chain",
+              "AltSchool Africa alumnus",
+            ].map((item) => (
               <div className="card" key={item}>
                 {item}
               </div>
@@ -153,14 +166,18 @@ export default async function Home() {
                   <span>{project.categories[0]}</span>
                 </div>
                 <div className="project-visual">
-                  {project.links.live ? (
+                  {project.preview ? (
                     <Image
-                      src={`/project-previews/${project.slug}.png`}
+                      src={project.preview}
                       alt={`${project.name} homepage preview`}
                       width={1440}
                       height={900}
                       priority={index === 0}
-                      style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                      }}
                     />
                   ) : (
                     project.name
@@ -170,11 +187,15 @@ export default async function Home() {
                 <p className="muted">{project.summary}</p>
                 <div className="tags">
                   {project.technologies.slice(0, 5).map((tech) => (
-                    <span className="tag" key={tech}>{tech}</span>
+                    <span className="tag" key={tech}>
+                      {tech}
+                    </span>
                   ))}
                 </div>
                 <div className="link-row">
-                  <a className="button" href={`/work/${project.slug}`}>View case study</a>
+                  <a className="button" href={`/work/${project.slug}`}>
+                    View case study
+                  </a>
                 </div>
               </article>
             ))}
@@ -206,16 +227,29 @@ export default async function Home() {
                 Notes from the <em>build log</em>.
               </h2>
             </div>
-            <a className="button" href={profile.medium} target="_blank" rel="noreferrer">
+            <a
+              className="button"
+              href={profile.medium}
+              target="_blank"
+              rel="noreferrer"
+            >
               View all <ExternalLink size={16} />
             </a>
           </div>
           <div className="journal-list">
             {mediumPosts.map((post, index) => (
-              <a className="journal-item" href={post.link} target="_blank" rel="noreferrer" key={post.link}>
+              <a
+                className="journal-item"
+                href={post.link}
+                target="_blank"
+                rel="noreferrer"
+                key={post.link}
+              >
                 <span>{String(index + 1).padStart(2, "0")}</span>
                 <strong>{post.title}</strong>
-                <small>{post.category} · {post.date}</small>
+                <small>
+                  {post.category} · {post.date}
+                </small>
                 <ExternalLink size={16} />
               </a>
             ))}
@@ -232,7 +266,11 @@ export default async function Home() {
               <div className="card" key={group}>
                 <h3>{group}</h3>
                 <div className="tags">
-                  {items.map((item) => <span className="tag" key={item}>{item}</span>)}
+                  {items.map((item) => (
+                    <span className="tag" key={item}>
+                      {item}
+                    </span>
+                  ))}
                 </div>
               </div>
             ))}
