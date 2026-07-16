@@ -59,6 +59,7 @@ html {
 
 body {
   display: flex;
+  max-width: 100vw;
   min-height: 100vh;
   flex-direction: column;
   margin: 0;
@@ -142,6 +143,7 @@ a {
 
 .button {
   display: inline-flex;
+  max-width: 100%;
   min-height: 44px;
   align-items: center;
   justify-content: center;
@@ -334,6 +336,7 @@ a {
   border: 1px solid var(--border);
   border-radius: 8px;
   background: var(--card-bg);
+  max-width: 100%;
   padding: 22px;
 }
 
@@ -354,6 +357,7 @@ a {
   min-width: 0;
   min-height: 100%;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .project-card p {
@@ -364,6 +368,8 @@ a {
   display: grid;
   overflow: hidden;
   aspect-ratio: 16 / 11;
+  width: 100%;
+  max-width: 100%;
   min-height: 220px;
   place-items: center;
   border: 1px solid var(--border);
@@ -376,6 +382,11 @@ a {
   font-weight: 400;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+}
+
+.project-visual img {
+  display: block;
+  max-width: 100%;
 }
 
 .card h2,
@@ -575,6 +586,10 @@ a {
 }
 
 @media (max-width: 860px) {
+  .container {
+    width: min(100% - 28px, 1120px);
+  }
+
   .contact-panel {
     align-items: flex-start;
     flex-direction: column;
@@ -635,7 +650,32 @@ a {
   }
 
   .card {
+    min-width: 0;
     padding: 20px;
+  }
+
+  .actions,
+  .link-row,
+  .tags,
+  .project-meta {
+    max-width: 100%;
+  }
+
+  .project-meta > * {
+    min-width: 0;
+  }
+
+  .project-meta > :last-child {
+    overflow: hidden;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .project-card,
+  .project-visual {
+    width: 100%;
+    max-width: 100%;
   }
 
   .project-visual {

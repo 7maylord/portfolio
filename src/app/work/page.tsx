@@ -24,7 +24,7 @@ export default function WorkPage() {
         </p>
       </div>
       <div className="project-grid section">
-        {projects.map((project) => (
+        {projects.map((project, index) => (
           <article className="card project-card" key={project.slug}>
             <div className="project-visual">
               {project.preview ? (
@@ -33,6 +33,8 @@ export default function WorkPage() {
                   alt={`${project.name} homepage preview`}
                   width={1440}
                   height={900}
+                  priority={index === 0}
+                  loading={index === 0 ? undefined : "eager"}
                   style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 />
               ) : (
