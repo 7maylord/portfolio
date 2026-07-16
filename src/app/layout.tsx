@@ -1,39 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import Link from "next/link";
-import Script from "next/script";
 import { Menu } from "lucide-react";
 import "./globals.css";
 import { profile } from "@/content/profile";
 import { ThemeToggle } from "./theme-toggle";
-
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: profile.name,
-  jobTitle: profile.title,
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Lagos",
-    addressCountry: "Nigeria",
-  },
-  url: "https://olumideadenigba.vercel.app",
-  sameAs: [profile.github, profile.linkedin, profile.x, profile.medium],
-  knowsAbout: [
-    "Full-stack engineering",
-    "Backend systems",
-    "Rust",
-    "AI agents",
-    "Blockchain",
-    "Payment infrastructure",
-  ],
-};
-
-const themeScript = `
-try {
-  var theme = localStorage.getItem("theme");
-  if (theme === "light") document.documentElement.dataset.theme = "light";
-} catch {}
-`;
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://olumideadenigba.vercel.app"),
@@ -73,17 +43,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body suppressHydrationWarning>
-        <Script
-          id="theme-script"
-          strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{ __html: themeScript }}
-        />
-        <Script
-          id="person-json-ld"
-          type="application/ld+json"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
         <a className="skip-link" href="#main-content">
           Skip to content
         </a>

@@ -118,9 +118,6 @@ export default async function Home() {
             Rust, Next.js, NestJS, AI agents, payment systems, and multi-chain
             infrastructure.
           </p>
-          <p className="hero-role">
-            A <span>full-stack engineer</span> based in Lagos.
-          </p>
           <div className="actions">
             <Link className="button primary" href="/work">
               View my work <ArrowRight size={16} />

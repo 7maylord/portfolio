@@ -274,15 +274,6 @@ a {
   font-size: clamp(1.05rem, 2vw, 1.35rem);
 }
 
-.hero-role {
-  color: var(--muted);
-  font-family: var(--font-mono);
-  font-size: 0.95rem;
-  margin: 24px 0 0;
-  text-transform: uppercase;
-}
-
-.hero-role span,
 .section h2 em {
   color: var(--foreground);
   font-family: var(--font-display);
