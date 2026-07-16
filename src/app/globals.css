@@ -91,6 +91,8 @@ a {
   left: 16px;
   top: 16px;
   z-index: 100;
+  opacity: 0;
+  pointer-events: none;
   transform: translateY(-160%);
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -100,7 +102,9 @@ a {
   padding: 10px 14px;
 }
 
-.skip-link:focus {
+.skip-link:focus-visible {
+  opacity: 1;
+  pointer-events: auto;
   transform: translateY(0);
 }
 
@@ -343,8 +347,8 @@ a {
 .project-visual {
   display: grid;
   overflow: hidden;
-  aspect-ratio: 16 / 10;
-  min-height: 160px;
+  aspect-ratio: 16 / 11;
+  min-height: 220px;
   place-items: center;
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -356,16 +360,6 @@ a {
   font-weight: 400;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-}
-
-.project-visual iframe {
-  width: 200%;
-  height: 200%;
-  border: 0;
-  background: var(--surface);
-  pointer-events: none;
-  transform: scale(0.5);
-  transform-origin: top left;
 }
 
 .card h2,

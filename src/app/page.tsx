@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Download, ExternalLink } from "lucide-react";
 import { profile, stackGroups } from "@/content/profile";
 import { projects } from "@/content/projects";
@@ -72,11 +73,13 @@ export default function Home() {
                 </div>
                 <div className="project-visual">
                   {project.links.live ? (
-                    <iframe
-                      src={project.links.live}
-                      title={`${project.name} homepage preview`}
-                      loading="lazy"
-                      tabIndex={-1}
+                    <Image
+                      src={`/project-previews/${project.slug}.png`}
+                      alt={`${project.name} homepage preview`}
+                      width={1440}
+                      height={900}
+                      priority={index === 0}
+                      style={{ width: "100%", height: "100%", objectFit: "cover" }}
                     />
                   ) : (
                     project.name

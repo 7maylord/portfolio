@@ -60,7 +60,10 @@ export const projects: Project[] = [
       "Used clear content hierarchy so event details stay scannable.",
       "Kept the interface responsive and lightweight.",
     ],
-    links: {},
+    links: {
+      github: "https://github.com/7maylord/evently",
+      live: "",
+    },
   },
   {
     slug: "afromeet",
@@ -81,7 +84,10 @@ export const projects: Project[] = [
       "Kept the AI layer tied to concrete patron actions.",
       "Separated product storytelling from protocol mechanics.",
     ],
-    links: {},
+    links: {
+      github: "https://github.com/7maylord/afroMeet",
+      live: "https://afromeet.vercel.app/",
+    },
   },
   {
     slug: "ares",
@@ -102,7 +108,10 @@ export const projects: Project[] = [
       "Kept vulnerability reasoning attached to source context.",
       "Focused the product around triage and bounty workflows.",
     ],
-    links: {},
+    links: {
+      github: "https://github.com/7maylord/ares",
+      live: "https://ares-x.vercel.app/",
+    },
   },
   {
     slug: "paytroix",
@@ -125,7 +134,7 @@ export const projects: Project[] = [
     ],
     links: {
       github: "https://github.com/7maylord/Paytroix",
-      live: "https://paytroix.xyz/",
+      live: "https://paytroix.vercel.app/",
     },
   },
 ];
