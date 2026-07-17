@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ExternalLink, GitFork } from "lucide-react";
-import { getProject, projects } from "@/content/projects";
+import { coreSample, getProject, projects } from "@/content/projects";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -36,16 +36,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ProjectPage({ params }: Props) {
   const { slug } = await params;
-  const project = getProject(slug);
+  const index = projects.findIndex((p) => p.slug === slug);
+  const project = index >= 0 ? projects[index] : undefined;
 
   if (!project) {
     notFound();
   }
 
+  const s = coreSample(project, index);
+
   return (
     <section className="container">
       <div className="page-title">
-        <div className="eyebrow">{project.status} · {project.role}</div>
+        <div className="eyebrow">
+          Sample Report · {s.sample} · {s.depth} · {s.label}
+        </div>
         <h1>{project.name}</h1>
         <p className="muted">{project.tagline}</p>
         <div className="actions">
@@ -75,30 +80,47 @@ export default async function ProjectPage({ params }: Props) {
       </div>
 
       <div className="case-layout">
-        <div className="card">
+        <div className="case-main">
           <h2>Overview</h2>
-          <p className="muted">{project.summary}</p>
+          <p>{project.summary}</p>
           <h2>Problem</h2>
-          <p className="muted">{project.problem}</p>
+          <p>{project.problem}</p>
           <h2>Solution</h2>
-          <p className="muted">{project.solution}</p>
-          <h2>Engineering decisions</h2>
-          <ul className="list">
+          <p>{project.solution}</p>
+          <h2>Engineering log</h2>
+          <ol className="list">
             {project.decisions.map((decision) => (
               <li key={decision}>{decision}</li>
             ))}
-          </ul>
+          </ol>
         </div>
 
-        <aside className="card">
-          <h2>Project details</h2>
-          <p><strong>Role:</strong><br />{project.role}</p>
-          <p><strong>Status:</strong><br />{project.status}</p>
-          <p><strong>Categories:</strong><br />{project.categories.join(", ")}</p>
+        <aside className="case-aside">
+          <h2>Sample data</h2>
+          <div className="row">
+            <span className="k">Role</span>
+            <span className="v">{project.role}</span>
+          </div>
+          <div className="row">
+            <span className="k">Status</span>
+            <span className="v">{project.status}</span>
+          </div>
+          <div className="row">
+            <span className="k">Depth · Stratum</span>
+            <span className="v">
+              {s.depth} · {s.label}
+            </span>
+          </div>
+          <div className="row">
+            <span className="k">Categories</span>
+            <span className="v">{project.categories.join(", ")}</span>
+          </div>
           <h3>Stack</h3>
           <div className="tags">
             {project.technologies.map((tech) => (
-              <span className="tag" key={tech}>{tech}</span>
+              <span className="tag" key={tech}>
+                {tech}
+              </span>
             ))}
           </div>
         </aside>
