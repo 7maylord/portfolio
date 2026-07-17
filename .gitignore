@@ -4,6 +4,7 @@
 .env.development
 .env.production
 PORTFOLIO_IMPLEMENTATION_PLAN.md
+PORTFOLIO_V3_SITE_INVESTIGATION_PLAN.md 
 # Logs
 logs
 *.log

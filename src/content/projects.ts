@@ -362,3 +362,34 @@ projects.forEach((project) => {
 export function getProject(slug: string) {
   return projects.find((project) => project.slug === slug);
 }
+
+// Maps a project onto the geotechnical drawing metaphor: a logged depth plus a
+// soil stratum + hatch pattern derived from its primary category. Purely
+// presentational — the underlying project data is untouched.
+type Stratum = { label: string; hatch: string };
+
+const strataByCategory: Record<string, Stratum> = {
+  "Full Stack": { label: "Fill", hatch: "h-fill" },
+  Backend: { label: "Rock", hatch: "h-rock" },
+  API: { label: "Rock", hatch: "h-rock" },
+  AI: { label: "Sand", hatch: "h-sand" },
+  Blockchain: { label: "Bedrock", hatch: "h-rock" },
+  "Smart Contracts": { label: "Bedrock", hatch: "h-rock" },
+  Starknet: { label: "Bedrock", hatch: "h-rock" },
+  Fintech: { label: "Clay", hatch: "h-clay" },
+  Data: { label: "Clay", hatch: "h-clay" },
+  Security: { label: "Sand", hatch: "h-sand" },
+  Privacy: { label: "Clay", hatch: "h-clay" },
+  Game: { label: "Fill", hatch: "h-fill" },
+};
+
+const defaultStratum: Stratum = { label: "Fill", hatch: "h-fill" };
+
+export function coreSample(project: Project, index: number) {
+  const stratum = strataByCategory[project.categories[0]] ?? defaultStratum;
+  return {
+    depth: `-${(1.5 * (index + 1)).toFixed(1)}m`,
+    sample: `S-${String(index + 1).padStart(2, "0")}`,
+    ...stratum,
+  };
+}

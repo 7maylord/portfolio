@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { profile } from "@/content/profile";
 
 export const metadata: Metadata = {
   title: "About",
@@ -13,17 +12,17 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   const timeline = [
     {
-      period: "Now",
+      period: "0.0m · Now",
       title: "Software engineering across product and infrastructure",
       body: "Building full-stack products, backend systems, AI agent workflows, payment rails, and blockchain applications with TypeScript, Rust, and modern deployment tooling.",
     },
     {
-      period: "2023",
+      period: "2.5m · 2023",
       title: "Backend engineering training and software transition",
       body: "Deepened backend fundamentals through AltSchool Africa while turning civil-engineering problem solving into production software practice.",
     },
     {
-      period: "2019-2023",
+      period: "6.0m · 2019—2023",
       title: "Civil and geotechnical engineering",
       body: "Worked on foundation and infrastructure delivery, technical documentation, engineering analysis, and multidisciplinary coordination.",
     },
@@ -32,10 +31,10 @@ export default function AboutPage() {
   return (
     <section className="container">
       <div className="page-title">
-        <div className="eyebrow">About</div>
-        <h1>I turn difficult problems into systems people can actually use.</h1>
+        <div className="eyebrow">About · Investigator</div>
+        <h1>I turn difficult problems into systems people can use.</h1>
         <p className="muted">
-          I’m Alfred Olumide Adenigba, a Full Stack Software Engineer working
+          I’m Alfred Olumide Adenigba, a full-stack software engineer working
           with TypeScript and Rust across backend systems, web applications, AI
           agents, payment infrastructure, and blockchain platforms.
         </p>
@@ -45,13 +44,13 @@ export default function AboutPage() {
         <div className="about-copy">
           <div className="eyebrow">How I Work</div>
           <h2>Product-minded engineering with systems discipline.</h2>
-          <p className="muted">
+          <p>
             I like owning the full path from architecture to deployment:
             modelling the problem, choosing practical boundaries, implementing
             the system, testing failure paths, and refining the experience until
             it is useful.
           </p>
-          <p className="muted">
+          <p>
             The civil-engineering background still shows up in the way I work:
             document clearly, coordinate with other disciplines, respect
             constraints, and design for what happens outside the happy path.
