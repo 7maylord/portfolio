@@ -7,7 +7,7 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/alfred-olumide-adenigba/",
   x: "https://x.com/0xMaylord",
   medium: "https://maylord.medium.com/",
-  resume: "/Alfred-Olumide-Adenigba-Resume.pdf",
+  resume: "/Alfred_Olumide_Adenigba_Resume.pdf",
 };
 
 export const stackGroups = [
@@ -15,5 +15,8 @@ export const stackGroups = [
   ["Backend", ["NestJS", "Node.js", "Express", "Axum", "REST APIs", "JWT"]],
   ["Frontend", ["Next.js", "React", "Tailwind CSS", "Responsive UI"]],
   ["Data & Infra", ["PostgreSQL", "MongoDB", "Redis", "Docker", "Vercel"]],
-  ["Blockchain", ["Foundry", "Hardhat", "Starknet", "Soroban", "Stylus", "ink!"]],
+  [
+    "Blockchain",
+    ["Foundry", "Hardhat", "Starknet", "Soroban", "Stylus", "ink!"],
+  ],
 ] as const;
