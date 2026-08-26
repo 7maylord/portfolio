@@ -4,6 +4,7 @@ import { Menu } from "lucide-react";
 import "./globals.css";
 import { profile } from "@/content/profile";
 import { ThemeToggle } from "./theme-toggle";
+import { SurveyToggle } from "./survey-toggle";
 import { SurveyLayer } from "./survey-layer";
 
 export const metadata: Metadata = {
@@ -36,8 +37,7 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-// Apply the saved theme before first paint to avoid a flash of the wrong theme.
-const themeInit = `document.documentElement.classList.add("js");try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;}catch(e){}`;
+const themeInit = `document.documentElement.classList.add("js");try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;if(localStorage.getItem("survey")==="on")document.documentElement.dataset.survey="on";}catch(e){}`;
 
 const navLinks = [
   { href: "/work", label: "Work" },
@@ -51,7 +51,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInit }} />
       </head>
@@ -87,6 +87,7 @@ export default function RootLayout({
                 Blog
               </a>
               <Link href="/contact">Contact</Link>
+              <SurveyToggle />
               <ThemeToggle />
             </div>
             <details className="mobile-menu">
@@ -109,6 +110,7 @@ export default function RootLayout({
                   Blog
                 </a>
                 <Link href="/contact">Contact</Link>
+                <SurveyToggle />
                 <ThemeToggle />
               </div>
             </details>

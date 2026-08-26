@@ -3,16 +3,9 @@
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 
-// The signature interaction: a surveyor's reticle that tracks the cursor, casts
-// dimension lines to the sheet edges with live station readouts, and logs
-// coordinates + elevation in a title-block HUD. Pure decoration layered over the
-// site — every element is aria-hidden and pointer-events:none, so the page stays
-// fully usable with JS off, on touch, and with reduced motion.
 export function SurveyLayer() {
   const pathname = usePathname();
 
-  // Re-scan scroll-reveal targets on every route change, and refresh the depth
-  // gauge for the new page (the persistent effect below owns the scroll math).
   useEffect(() => {
     const revealObs = new IntersectionObserver(
       (entries) => {
@@ -47,17 +40,8 @@ export function SurveyLayer() {
     addEventListener("scroll", onScroll, { passive: true });
     onScroll();
 
-    if (!fine) {
-      return () => {
-        removeEventListener("scroll", onScroll);
-      };
-    }
-
-    // Fine pointer: enable the reticle + dimensioning.
-    document.body.classList.add("fine");
-    document.getElementById("survey")?.classList.add("live");
-    document.getElementById("hud")?.classList.add("live");
-
+    const survey = document.getElementById("survey");
+    const hud = document.getElementById("hud");
     const readE = document.getElementById("readE");
     const readN = document.getElementById("readN");
     const hudStation = document.getElementById("hudStation");
@@ -102,7 +86,9 @@ export function SurveyLayer() {
 
       const dx = cx - innerWidth / 2;
       const dy = innerHeight / 2 - cy;
-      const ang = Math.round(((Math.atan2(dx, dy) * 180) / Math.PI + 360) % 360);
+      const ang = Math.round(
+        ((Math.atan2(dx, dy) * 180) / Math.PI + 360) % 360,
+      );
       const rel = ang <= 180 ? ang : 360 - ang;
       if (hudBearing)
         hudBearing.textContent =
@@ -122,10 +108,35 @@ export function SurveyLayer() {
       }
     };
 
-    addEventListener("pointermove", onMove, { passive: true });
-    loop();
+    // Survey mode is off by default; enable/disable the reticle + dimensioning
+    // in response to the toggle. On coarse pointers the reticle never runs.
+    let active = false;
+    const enable = () => {
+      if (active || !fine) return;
+      active = true;
+      document.body.classList.add("fine");
+      survey?.classList.add("live");
+      hud?.classList.add("live");
+      addEventListener("pointermove", onMove, { passive: true });
+      if (!running) {
+        running = true;
+        requestAnimationFrame(loop);
+      }
+    };
+    const disable = () => {
+      active = false;
+      document.body.classList.remove("fine");
+      survey?.classList.remove("live");
+      hud?.classList.remove("live");
+      removeEventListener("pointermove", onMove);
+    };
+    const sync = () => (root.dataset.survey === "on" ? enable() : disable());
+
+    sync();
+    addEventListener("survey-change", sync);
 
     return () => {
+      removeEventListener("survey-change", sync);
       removeEventListener("pointermove", onMove);
       removeEventListener("scroll", onScroll);
       document.body.classList.remove("fine");
