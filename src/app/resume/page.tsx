@@ -16,21 +16,29 @@ export default function ResumePage() {
     <section className="container">
       <div className="page-title">
         <div className="eyebrow">Resume · Specification Sheet</div>
-        <h1>The current engineering résumé.</h1>
+        <h1>Pick the résumé for the role.</h1>
         <p className="muted">
-          A focused résumé for full-stack, backend, AI, fintech, and blockchain
-          engineering roles.
+          Two builds of the same record — the full master, or a version focused
+          for full-stack and web application roles.
         </p>
       </div>
 
-      <div className="resume-panel">
-        <div>
-          <h2>Alfred Olumide Adenigba</h2>
-          <p>Full Stack, Rust, AI and Blockchain Software Engineer</p>
-        </div>
-        <a className="button primary" href={profile.resume}>
-          <Download size={16} /> Download PDF
-        </a>
+      <div className="resume-list">
+        {profile.resumes.map((resume) => (
+          <div className="resume-panel" key={resume.file}>
+            <div>
+              <h2>{resume.label}</h2>
+              <p>{resume.note}</p>
+            </div>
+            <a
+              className="button primary"
+              href={resume.file}
+              aria-label={`Download the ${resume.label}`}
+            >
+              <Download size={16} /> Download PDF
+            </a>
+          </div>
+        ))}
       </div>
     </section>
   );

@@ -7,16 +7,31 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/alfred-olumide-adenigba/",
   x: "https://x.com/0xMaylord",
   medium: "https://maylord.medium.com/",
-  resume: "/Alfred_Olumide_Adenigba_Resume.pdf",
+
+  resumes: [
+    {
+      label: "Master résumé",
+      note: "Full engineering history across backend, Rust, AI, and blockchain.",
+      file: "/Alfred_Olumide_Adenigba_Resume.pdf",
+    },
+    {
+      label: "Full-Stack résumé",
+      note: "Focused for full-stack and web application roles.",
+      file: "/Alfred_Olumide_Adenigba_Full_Stack_Resume.pdf",
+    },
+  ],
 };
 
 export const stackGroups = [
-  ["Core", ["TypeScript", "Rust", "JavaScript", "Solidity", "Cairo", "SQL"]],
+  ["Core", ["TypeScript", "Rust", "JavaScript", "Solidity", "Cairo"]],
   ["Backend", ["NestJS", "Node.js", "Express", "Axum", "REST APIs", "JWT"]],
   ["Frontend", ["Next.js", "React", "Tailwind CSS", "Responsive UI"]],
-  ["Data & Infra", ["PostgreSQL", "MongoDB", "Redis", "Docker", "Vercel"]],
+  [
+    "Data & Infra",
+    ["PostgreSQL", "MongoDB", "Redis", "Docker", "AWS", "Vercel"],
+  ],
   [
     "Blockchain",
-    ["Foundry", "Hardhat", "Starknet", "Soroban", "Stylus", "ink!"],
+    ["Foundry", "Hardhat", "Clarity", "Soroban", "Stylus", "ink!"],
   ],
 ] as const;

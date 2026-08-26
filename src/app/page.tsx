@@ -140,7 +140,7 @@ export default async function Home() {
           <Link className="button primary" href="/work">
             Descend into the log <ArrowRight size={16} />
           </Link>
-          <a className="button" href={profile.resume}>
+          <a className="button" href={profile.resumes[0].file}>
             <Download size={16} /> Résumé
           </a>
           <a
