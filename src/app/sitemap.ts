@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { projects } from "@/content/projects";
 
 const baseUrl = "https://olumideadenigba.vercel.app";
-const lastModified = new Date("2026-07-15");
+const lastModified = new Date("2026-08-26");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
